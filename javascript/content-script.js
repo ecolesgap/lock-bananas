@@ -1,10 +1,23 @@
-var ContentScriptController = {
-  load: function() {
-    credentials = this.fetchCredentials();
+var ContentScript = {
+  init: function() {
+    this.fetchCredentials();
+  },
+
+  fetchCredentials: function() {
+    var that = this;
+    chrome.runtime.sendMessage({action: "credentials"}, function(response) {
+      setTimeout(function() {
+        that.populateInputs(response.credentials);
+      }, 10000);
+    });
+  },
+
+  populateInputs: function(credentials) {
     this.apiKeyInputs().val(credentials.apiKey);
     this.authorizationInputs().val(credentials.authorization);
     this.contentTypeInputs().val(credentials.contentType);
   },
+
   apiKeyInputs: function() {
     return $("input.required[type='text'][name='X-API-KEY']");
   },
@@ -13,15 +26,9 @@ var ContentScriptController = {
   },
   contentTypeInputs: function() {
     return $("input.required[type='text'][name='Content-Type']");
-  },
-  fetchCredentials: function() {
-    return StorageService.retriever();
   }
 };
 
 $(document).ready(function() {
-  //Swagger needs to load all the inputs before this code is execute.
-  setTimeout(function() {
-    ContentScriptController.load();
-  }, 1250);
+  ContentScript.init();
 });

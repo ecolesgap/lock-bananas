@@ -7,21 +7,24 @@
   "options_page": "options/options.html",
 
   "background": {
-    "scripts": ["javascript/background.js", "javascript/jquery-2.1.4.min.js", "javascript/storage.js"],
+    "scripts": [
+      "javascript/background.js",
+      "javascript/jquery-2.1.4.min.js",
+      "javascript/storage.js"
+    ],
     "persistent": false
   },
 
-  "page_action": {
-    "default_icon": "images/swag-me-in-icon.png",
-    "default_title": "Add api credentials"
-  },
+  // "page_action": {
+  //   "default_icon": "images/swag-me-in-icon.png",
+  //   "default_title": "Add api credentials"
+  // },
 
   "content_scripts": [
     {
-      "matches": ["http://*/documentator/v*.html"],
+      "matches": ["http://*/documentator/*.html"],
       "js": [
         "javascript/jquery-2.1.4.min.js",
-        "javascript/storage-service.js",
         "javascript/content-script.js"
       ],
       "run_at": "document_end"
