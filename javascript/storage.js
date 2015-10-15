@@ -1,10 +1,10 @@
 var storage = new function() {
-    var storagekey = 'Swag-me-in-array'
-    this.save = function(key, data) {
-        var item_key = storagekey;
-        current_array = JSON.parse(localStorage.getItem(storagekey));
+    var storagekey = 'Swag-me-in-data'
+    this.save = function(data) {
 
-        localStorage.setItem(item_key, JSON.stringify())
+        //current_array = JSON.parse(localStorage.getItem(storagekey));
+
+        localStorage.setItem(storagekey, JSON.stringify(data))
         console.log("Saved a new array item");
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
@@ -12,17 +12,13 @@ var storage = new function() {
             status.textContent = '';
         }, 1500);
     }
-    this.retrieve = function(url) {
+    this.retrieve = function() {
         // Use default value color = 'red' and likesColor = true.
-        array = localStorage.getItem(storagekey);
-        $.each(array, function(index, data) {
-            if (data.url.search(new RegExp(url)) != -1) {
-                return data;
-            }
-        });
+        return localStorage.getItem(storagekey);
+
     }
-    this.retrieve_all = function() {
+    /*this.retrieve_all = function() {
         // Use default value color = 'red' and likesColor = true.
         localStorage.getItem(storagekey);
-    }
+    } */
 }
