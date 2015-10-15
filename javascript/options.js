@@ -1,31 +1,37 @@
-var options = new function() {
-    this.display = function() {
-        /*data = JSON.parse(storage.retrieve());
-        $('#stored').html();*/
-    }
+var Options = {
+  init: function() {
+    var that = this;
+    this.populate();
+    $('#save').click(function() { that.save() });
+  },
 
-    this.populate = function(key) {
-        data = JSON.parse(storage.retrieve());
-        if (data != null) {
-            $('#auth').val(data['auth']);
-            $('#api-key').val(data['api_key']);
-            $('#content-type').val(data['content_type']);
-        }
+  populate: function() {
+    var data = JSON.parse(localStorage.getItem('Swag-me-in-data'));
+    if (data) {
+      $('#auth').val(data['auth']);
+      $('#api-key').val(data['api_key']);
+      $('#content-type').val(data['content_type']);
     }
+  },
 
-    this.save = function() {
-        var data = {
-            //url: $('#url').val(),
-            auth: $('#auth').val(),
-            api_key: $('#api-key').val(),
-            content_type: $('#content_type').val()
-        }
-        storage.save(data);
-    }
-}
+  save: function() {
+    var data = {
+      auth: $('#auth').val(),
+      api_key: $('#api-key').val(),
+      content_type: $('#content-type').val()
+    };
+    localStorage.setItem('Swag-me-in-data', JSON.stringify(data))
+    this.saveMessage();
+  },
 
-//document.addEventListener('DOMContentLoaded', restore_options);
+  saveMessage: function() {
+    $('#status').html('Options saved.');
+    setTimeout(function() {
+      $('#status').html('');
+    }, 1500);
+  }
+};
+
 $(document).ready(function() {
-    $('#save').click(function() { options.save('x') });
-    options.populate();
+  Options.init();
 });

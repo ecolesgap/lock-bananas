@@ -9,16 +9,9 @@
   "background": {
     "scripts": [
       "javascript/background.js",
-      "javascript/jquery-2.1.4.min.js",
-      "javascript/storage.js"
-    ],
-    "persistent": false
+      "javascript/jquery-2.1.4.min.js"
+    ]
   },
-
-  // "page_action": {
-  //   "default_icon": "images/swag-me-in-icon.png",
-  //   "default_title": "Add api credentials"
-  // },
 
   "content_scripts": [
     {
