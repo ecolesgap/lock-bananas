@@ -20,6 +20,7 @@
       "matches": ["http://*/documentator/v*.html"],
       "js": [
         "javascript/jquery-2.1.4.min.js",
+        "javascript/storage-service.js",
         "javascript/content-script.js"
       ],
       "run_at": "document_end"

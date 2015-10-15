@@ -2,8 +2,8 @@ var pageRule = {
   conditions: [
     new chrome.declarativeContent.PageStateMatcher({
       pageUrl: {
-        urlContains: 'localhost',
-        ports: [81, 3001]
+        urlContains: '/documentator/v',
+        ports: [81, 3001, 82, 3002]
       }
     })
   ],
