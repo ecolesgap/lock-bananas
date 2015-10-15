@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "Getting started example",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "1.0",
+
+  // "page_action": {
+  //   "default_icon": "images/swag-me-in-icon.png",
+  //   "default_title": "La super tuanis app de Ed y Roy"
+  // },
+  "browser_action": {
+    "default_icon": "images/swag-me-in-icon.png",
+    "default_title": "Click here!"
+  },
+  "permissions": [
+    "declarativeContent"
+  ]
+}
