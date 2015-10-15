@@ -1,7 +1,7 @@
 var options = new function() {
-    this.display_list = function() {
-        alert(storage.retrieve_all());
-        $('#stored').html(storage.retrieve_all());
+    this.display = function() {
+        data = JSON.parse(storage.retrieve());
+        $('#stored').html();
     }
 
     this.get = function(key) {
@@ -10,16 +10,17 @@ var options = new function() {
 
     this.save = function() {
         var data = {
+            //url: $('#url').val(),
             auth: $('#auth').val(),
             api_key: $('#api-key').val(),
-            content_type: $('#content-type').val(),
+            content_type: $('#content-type').val()
         }
-        storage.save($('#url').val(), data);
+        storage.save(data);
     }
 }
 
 //document.addEventListener('DOMContentLoaded', restore_options);
 $(document).ready(function() {
     $('#save').click(function() { options.save('x') });
-    options.display_list();
+    options.display();
 });
