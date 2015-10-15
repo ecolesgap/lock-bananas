@@ -4,9 +4,10 @@
   "name": "SwagMeIn",
   "description": "This extension adds saved credentials to swagger api",
   "version": "1.0",
+  "options_page": "options/options.html",
 
   "background": {
-    "scripts": ["javascript/background.js"],
+    "scripts": ["javascript/background.js", "javascript/jquery-2.1.4.min.js", "javascript/storage.js"],
     "persistent": false
   },
 
@@ -28,7 +29,8 @@
   ],
 
   "permissions": [
-    "declarativeContent"
+    "declarativeContent",
+    "storage"
   ],
 
   "icons" : {
