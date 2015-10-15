@@ -1,19 +1,26 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "SwagMeIn",
+  "description": "This extension adds saved credentials to swagger api",
   "version": "1.0",
 
-  // "page_action": {
-  //   "default_icon": "images/swag-me-in-icon.png",
-  //   "default_title": "La super tuanis app de Ed y Roy"
-  // },
-  "browser_action": {
-    "default_icon": "images/swag-me-in-icon.png",
-    "default_title": "Click here!"
+  "background": {
+    "scripts": ["javascript/background.js"],
+    "persistent": false
   },
+
+  "page_action": {
+    "default_icon": "images/swag-me-in-icon.png",
+    "default_title": "Add api credentials"
+  },
+
   "permissions": [
     "declarativeContent"
-  ]
+  ],
+
+  "icons" : {
+    "48" : "images/swag-me-icon-48.png",
+    "128" : "images/swag-me-icon-128.png"
+  }
 }
