@@ -6,7 +6,7 @@
   "version": "1.0",
 
   "background": {
-    "scripts": ["javascript/background.js"],
+    "scripts": ["javascript/background.js", "javascript/jquery-2.1.4.min.js"],
     "persistent": false
   },
 
